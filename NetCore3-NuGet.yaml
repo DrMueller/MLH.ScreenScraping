@@ -16,8 +16,7 @@ jobs:
 - job: 'BuildAndPublishToNuGet'
   displayName: 'Build and publish to NuGet'
   pool:
-    name: Azure Pipelines
-    vmImage: vs2017-win2016
+    name: 'Hosted VS2017'
   steps:
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Initialize_And_Test.yaml@ALMStuff
     parameters:
