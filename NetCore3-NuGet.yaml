@@ -17,7 +17,8 @@ jobs:
 - job: 'BuildAndPublishToNuGet'
   displayName: 'Build and publish to NuGet'
   pool:
-    name: 'Hosted VS2017'
+    name: Azure Pipelines
+    vmImage: windows-2019 # note that the Resharper CLT will only work on a windows machine or container
   steps:
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Initialize_And_Test.yaml@ALMStuff
     parameters:
