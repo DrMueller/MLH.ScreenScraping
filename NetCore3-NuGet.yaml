@@ -3,6 +3,7 @@ name: 1.1$(rev:.r) # build numbering format
 variables:
   BuildConfiguration: 'Release'
   FolderToPack: 'Application'
+  SolutionName: 'MLH.ScreenScraping.sln'
 
 resources:
   repositories:
@@ -21,6 +22,7 @@ jobs:
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Initialize_And_Test.yaml@ALMStuff
     parameters:
       BuildConfiguration: $(BuildConfiguration)
+      SolutionName: $(SolutionName)
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Pack_And_Publish_To_NuGet.yaml@ALMStuff
     parameters:
       FolderToPack: $(FolderToPack)
