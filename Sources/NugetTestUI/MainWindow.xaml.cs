@@ -3,7 +3,7 @@ using System.Windows;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
 
-namespace Mmu.Mlh.ScreenScraping.TestUI
+namespace Mmu.Mlh.ScreenScraping.NugetTestUI
 {
     public partial class MainWindow
     {

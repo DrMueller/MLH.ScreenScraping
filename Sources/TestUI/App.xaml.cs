@@ -12,10 +12,11 @@ namespace Mmu.Mlh.ScreenScraping.TestUI
         protected override void OnStartup(StartupEventArgs e)
         {
             var containerConfig = ContainerConfiguration.CreateFromAssembly(typeof(App).Assembly);
-            var container = ContainerInitializationService.CreateInitializedContainer(containerConfig);
-
-            var window = container.GetInstance<MainWindow>();
-            window.Show();
+            using (var container = ContainerInitializationService.CreateInitializedContainer(containerConfig))
+            {
+                var window = container.GetInstance<MainWindow>();
+                window.ShowDialog();
+            }
         }
     }
 }

@@ -8,8 +8,8 @@
     <CodeAnalysisRuleSet>..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
     <Authors>DrMueller</Authors>
     <Company>DrMueller</Company>
-    <Product>MyLittleHelpers.WpfCoreExtensions</Product>
-    <Description>DrMuellers little WPF Core Extensions</Description>
+    <Product>MyLittleHelpers.ScreenScraping</Product>
+    <Description>DrMuellers little WPF Screen Scraping</Description>
     <PackageIconUrl>https://raw.githubusercontent.com/DrMueller/MLH.WpfCoreExtensions/master/Sources/Application/Infrastructure/Assets/M.png</PackageIconUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <AssemblyVersion Condition="'$(BUILD_BUILDNUMBER)' != '' ">$(BUILD_BUILDNUMBER)</AssemblyVersion>
