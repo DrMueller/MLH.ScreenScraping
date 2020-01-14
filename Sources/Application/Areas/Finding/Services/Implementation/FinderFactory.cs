@@ -16,7 +16,6 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Finding.Services.Implementation
         {
             var finder = _serviceLocator.GetService<FindByClassName>();
             finder.Initialize(className);
-
             return finder;
         }
 
@@ -24,7 +23,20 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Finding.Services.Implementation
         {
             var finder = _serviceLocator.GetService<FindById>();
             finder.Initialize(id);
+            return finder;
+        }
 
+        public IFinder ByInnerText(string text)
+        {
+            var finder = _serviceLocator.GetService<FindByInnerText>();
+            finder.Initialize(text);
+            return finder;
+        }
+
+        public IFinder ByTagName(string tagName)
+        {
+            var finder = _serviceLocator.GetService<FindByTag>();
+            finder.Initialize(tagName);
             return finder;
         }
     }

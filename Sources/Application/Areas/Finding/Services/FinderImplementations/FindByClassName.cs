@@ -1,21 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
 
 namespace Mmu.Mlh.ScreenScraping.Areas.Finding.Services.FinderImplementations
 {
-    internal class FindByClassName : IFinder
+    internal class FindByClassName : FinderBase
     {
-        private string _className;
+        private string _upperClassName;
 
-        public WebElement Find(IReadOnlyCollection<WebElement> elements)
-        {
-            return elements.SingleOrDefault(f => f.ClassName == _className);
-        }
+        protected override Func<WebElement, bool> FinderPredicate => f => f.ClassName.ToUpperInvariant() == _upperClassName;
 
         internal void Initialize(string className)
         {
-            _className = className;
+            _upperClassName = className.ToUpperInvariant();
         }
     }
 }

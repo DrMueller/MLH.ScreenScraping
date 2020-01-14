@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using StructureMap;
+﻿using StructureMap;
 
 namespace Mmu.Mlh.ScreenScraping.TestUI.Infrastructure.DependencyInjection
 {
-    public class TestUIRegistry : Registry
+    public class TestUiRegistry : Registry
     {
-        public TestUIRegistry()
+        public TestUiRegistry()
         {
-            Scan(scanner =>
-            {
-                scanner.AssemblyContainingType<TestUIRegistry>();
-                scanner.WithDefaultConventions();
-            });
+            Scan(
+                scanner =>
+                {
+                    scanner.AssemblyContainingType<TestUiRegistry>();
+                    scanner.WithDefaultConventions();
+                });
         }
-
     }
 }

@@ -1,5 +1,4 @@
-﻿using Mmu.Mlh.ScreenScraping.Areas.Browsers.Models;
-using Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation;
+﻿using Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services.Implementation;
 using Mmu.Mlh.ScreenScraping.Areas.Finding.Services;
@@ -16,11 +15,12 @@ namespace Mmu.Mlh.ScreenScraping.Infrastructure.DependencyInjection
     {
         public AppRegistry()
         {
-            Scan(scanner =>
-            {
-                scanner.AssemblyContainingType<AppRegistry>();
-                scanner.AddAllTypesOf<IFinder>();
-            });
+            Scan(
+                scanner =>
+                {
+                    scanner.AssemblyContainingType<AppRegistry>();
+                    scanner.AddAllTypesOf<IFinder>();
+                });
 
             For<IFinder>().Transient();
             For<Browser>().Transient();

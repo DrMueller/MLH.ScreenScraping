@@ -16,12 +16,6 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Native.Services.Implementation
                 .Select(f => new WebElement(f))
                 .ToList();
 
-            var tra = document.all.Cast<IHTMLElement>().ToList();
-
-            var t = tra.Where(f => !string.IsNullOrEmpty(f.id)).ToList();
-            var t2 = tra.Select(f => f.innerHTML).ToList();
-            var elementwithids = result.Where(f => !string.IsNullOrEmpty(f.Id)).ToList();
-
             return result;
         }
     }

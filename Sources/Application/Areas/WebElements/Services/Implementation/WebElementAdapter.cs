@@ -8,15 +8,20 @@ namespace Mmu.Mlh.ScreenScraping.Areas.WebElements.Services.Implementation
 {
     internal class WebElementAdapter : IWebElementAdapter
     {
+        private static readonly Type _webElemenType = typeof(WebElement);
+
         public T Adapt<T>(WebElement element)
             where T : WebElement
         {
-            var ctor = typeof(T).GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance).Single();
+            var targetType = typeof(T);
 
-            var ctorParameter = ctor.GetParameters().Single();
+            if (targetType == _webElemenType)
+            {
+                return (T)element;
+            }
 
-            var newNativeElement = Convert.ChangeType(element.NativeElement, ctorParameter.ParameterType);
-            var arr = new List<object> { newNativeElement }.ToArray();
+            var ctor = targetType.GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance).Single();
+            var arr = new List<object> { element.NativeElement }.ToArray();
 
             var newObject = ctor.Invoke(arr);
             var result = (T)newObject;

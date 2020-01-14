@@ -3,6 +3,11 @@
     public interface IFinderFactory
     {
         IFinder ByClassName(string className);
+
         IFinder ById(string id);
+
+        IFinder ByTagName(string tagName);
+
+        IFinder ByInnerText(string text);
     }
 }

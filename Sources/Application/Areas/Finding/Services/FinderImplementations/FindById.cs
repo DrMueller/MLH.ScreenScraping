@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
 
 namespace Mmu.Mlh.ScreenScraping.Areas.Finding.Services.FinderImplementations
 {
-    internal class FindById : IFinder
+    internal class FindById : FinderBase
     {
         private string _id;
 
-        public WebElement Find(IReadOnlyCollection<WebElement> elements)
-        {
-            return elements.SingleOrDefault(f => f.Id == _id);
-        }
+        protected override Func<WebElement, bool> FinderPredicate => f => f.Id == _id;
 
         internal void Initialize(string id)
         {
