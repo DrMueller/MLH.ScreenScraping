@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\Mmu.Mlh.ScreenScraping.csproj" />
+    <PackageReference Include="Mmu.Mlh.ScreenScraping" Version="1.1.14" />
   </ItemGroup>
 
 </Project>
