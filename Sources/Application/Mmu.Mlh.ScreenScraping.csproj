@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.mshtml">
       <HintPath>..\..\Libraries\Microsoft.mshtml.dll</HintPath>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 
