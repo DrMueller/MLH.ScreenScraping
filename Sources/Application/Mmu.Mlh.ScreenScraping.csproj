@@ -8,6 +8,7 @@
     <CodeAnalysisRuleSet>..\..\CA_ProductionCode.ruleset</CodeAnalysisRuleSet>
     <ApplicationIcon />
     <StartupObject />
+    <NuspecFile>Mmu.Mlh.ScreenScraping.nuspec</NuspecFile>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\Assets\" />
