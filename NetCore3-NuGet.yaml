@@ -1,7 +1,7 @@
 name: 1.1$(rev:.r) # build numbering format
 
 variables:
-  BuildConfiguration: 'Debug'
+  BuildConfiguration: 'Release'
   FolderToPack: 'Application'
   SolutionName: 'MLH.ScreenScraping.sln'
 
