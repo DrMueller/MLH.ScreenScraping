@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
 
@@ -16,12 +17,17 @@ namespace Mmu.Mlh.ScreenScraping.NugetTestUI
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var browser = _browserFactory.Create(WebBrowser);
+            var browser = _browserFactory.Create(WebBrowser, InfoCallback);
             await browser.Navigate("https://www.google.ch");
 
             browser
                 .Find<WebElement>(f => f.ByClassName("gLFyf gsfi"))
                 .Click();
+        }
+
+        private static void InfoCallback(string obj)
+        {
+            Debug.WriteLine(obj);
         }
     }
 }

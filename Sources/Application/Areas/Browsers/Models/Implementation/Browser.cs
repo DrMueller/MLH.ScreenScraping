@@ -82,11 +82,20 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
 
         private void WebBrowser_LoadCompleted(object sender, NavigationEventArgs e)
         {
-            _infoCallback($"LoadCompleted {e.Uri}");
-            _uriHistory.Add(e.Uri);
-            _elements = _webElementFetcher.Fetch(_webBrowser.Document);
+            try
+            {
+                _infoCallback($"LoadCompleted {e.Uri}");
+                _uriHistory.Add(e.Uri);
+                _infoCallback("LoadCompleted 2");
+                _elements = _webElementFetcher.Fetch(_webBrowser.Document);
+                _infoCallback("LoadCompleted 3");
 
-            CheckAndFireMatchingUrls(e.Uri);
+                CheckAndFireMatchingUrls(e.Uri);
+            }
+            catch (Exception ex)
+            {
+                _infoCallback($"Error: {ex.Message}");
+            }
         }
 
         private void CheckAndFireMatchingUrls(Uri loadedUri)
