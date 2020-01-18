@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
