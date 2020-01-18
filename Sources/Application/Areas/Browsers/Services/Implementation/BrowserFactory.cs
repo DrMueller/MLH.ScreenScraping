@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Reflection;
 using System.Windows.Controls;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Models;
@@ -16,12 +17,12 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Services.Implementation
             _serviceLocator = serviceLocator;
         }
 
-        public IBrowser Create(WebBrowser webBrowser)
+        public IBrowser Create(WebBrowser webBrowser, Action<string> infoCallback)
         {
             HideScriptErrors(webBrowser);
 
             var browser = _serviceLocator.GetService<Browser>();
-            browser.Initialize(webBrowser);
+            browser.Initialize(webBrowser, infoCallback);
 
             return browser;
         }

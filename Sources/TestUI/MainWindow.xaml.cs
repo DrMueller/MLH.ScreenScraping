@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Windows;
 using Mmu.Mlh.ScreenScraping.Areas.Browsers.Services;
 using Mmu.Mlh.ScreenScraping.Areas.WebElements.Models;
@@ -17,7 +18,7 @@ namespace Mmu.Mlh.ScreenScraping.TestUI
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            var browser = _browserFactory.Create(WebBrowser);
+            var browser = _browserFactory.Create(WebBrowser, InfoCallback);
             await browser.Navigate("https://www.google.ch");
 
             browser
@@ -38,6 +39,11 @@ namespace Mmu.Mlh.ScreenScraping.TestUI
                 .FindAll(f => f.ByInnerText("Benutzerkonten"))
                 .Single(f => f.TagName.ToUpperInvariant() == "BUTTON")
                 .Click();
+        }
+
+        private static void InfoCallback(string obj)
+        {
+            Debug.WriteLine(obj);
         }
     }
 }

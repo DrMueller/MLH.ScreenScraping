@@ -20,6 +20,7 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
         private readonly IWebElementFetcher _webElementFetcher;
 
         private IReadOnlyCollection<WebElement> _elements;
+        private Action<string> _infoCallback;
         private WebBrowser _webBrowser;
 
         public Browser(
@@ -52,7 +53,7 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
 
         public Task Navigate(string source)
         {
-            // String.Empty because we want this task to fire for sure
+            _infoCallback($"Navigating to {source}");
             var pageLoaderSource = WaitForPageToLoad(string.Empty);
             _webBrowser.Navigate(source);
             return pageLoaderSource;
@@ -72,14 +73,16 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
             return pageLoaderSource.Task;
         }
 
-        internal void Initialize(WebBrowser webBrowser)
+        internal void Initialize(WebBrowser webBrowser, Action<string> infoCallback)
         {
             _webBrowser = webBrowser;
+            _infoCallback = infoCallback;
             _webBrowser.LoadCompleted += WebBrowser_LoadCompleted;
         }
 
         private void WebBrowser_LoadCompleted(object sender, NavigationEventArgs e)
         {
+            _infoCallback($"LoadCompleted {e.Uri}");
             _uriHistory.Add(e.Uri);
             _elements = _webElementFetcher.Fetch(_webBrowser.Document);
 
@@ -89,9 +92,15 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
         private void CheckAndFireMatchingUrls(Uri loadedUri)
         {
             var uriStr = loadedUri.ToString();
+
+            _infoCallback($"uriStr {uriStr}");
+            _infoCallback($"Count: {_loaderSources.Count}");
+
             var matchingSources = _loaderSources
                 .Where(f => uriStr.Contains((string)f.Task.AsyncState, StringComparison.OrdinalIgnoreCase))
                 .ToList();
+
+            _infoCallback($"Matching Found: {matchingSources.Count}");
 
             matchingSources.ForEach(
                 source =>
