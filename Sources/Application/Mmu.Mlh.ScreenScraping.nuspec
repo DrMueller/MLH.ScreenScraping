@@ -3,7 +3,7 @@
   <metadata>
     <id>Mmu.Mlh.ScreenScraping</id>
     <version>1.0.0.0</version>
-    <title>MyLittleHelpers.ScreenScraping</title>
+    <title>MyLittleHelpers.ScreenScraping2</title>
     <authors>DrMueller</authors>
     <owners>DrMueller</owners>
     <projectUrl>https://github.com/DrMueller/MLH.ScreenScraping</projectUrl>
@@ -13,4 +13,7 @@
     <copyright>DrMueller</copyright>
     <tags></tags>
   </metadata>
+   <files>
+    <file src="..\..\Libraries\Microsoft.mshtml.dll" target="lib\net40" />
+  </files>
 </package>

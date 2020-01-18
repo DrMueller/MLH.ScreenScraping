@@ -20,7 +20,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.mshtml">
       <HintPath>..\..\Libraries\Microsoft.mshtml.dll</HintPath>
-      <Private>true</Private>
+      <Private>false</Private>
     </Reference>
   </ItemGroup>
 
