@@ -36,9 +36,7 @@ jobs:
    $replaced = $environmentContent -replace '__BuildVersion__', '$(Build.BuildNumber)'
       
    Set-Content -Path $filePath -value $replaced
-    
-  displayName: 'PowerShell Script'
-    
+
   displayName: 'PowerShell Script'
 
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Pack_And_Publish_To_NuGet.yaml@ALMStuff
