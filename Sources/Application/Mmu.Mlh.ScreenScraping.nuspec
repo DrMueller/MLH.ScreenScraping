@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <id>Mmu.Mlh.ScreenScraping</id>
     <version>__BuildVersion__</version>
     <title>MyLittleHelpers.ScreenScraping2</title>
@@ -12,12 +13,6 @@
     <description>DrMuellers little WPF Screen Scraping</description>
     <copyright>DrMueller</copyright>
     <tags></tags>
-
-    <dependencies>
-        <group targetFramework="netcoreapp3.0">
-        </group>
-    </dependencies>
-
   </metadata>
    <files>
     <file src="..\..\Libraries\Microsoft.mshtml.dll" target="lib\net40" />
