@@ -14,7 +14,7 @@
     <AssemblyVersion Condition="'$(BUILD_BUILDNUMBER)' == '' ">1.0.0.0</AssemblyVersion>
     <FileVersion Condition="'$(BUILD_BUILDNUMBER)' == '' ">1.0.0.0</FileVersion>
     <Version Condition="'$(BUILD_BUILDNUMBER)' == '' ">1.0.0.0</Version>
-    <NuspecFile>Mmu.Mlh.ScreenScraping.nuspec</NuspecFile>
+    <NuspecFile>Mmu.Mlh.ScreenScraping2.nuspec</NuspecFile>
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Infrastructure\Assets\" />
