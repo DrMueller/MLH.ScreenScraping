@@ -38,6 +38,7 @@ jobs:
       Set-Content -Path $filePath -value $replaced
         
     displayName: 'PowerShell Script'
+    enabled: false
 
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Pack_And_Publish_To_NuGet.yaml@ALMStuff
     parameters:

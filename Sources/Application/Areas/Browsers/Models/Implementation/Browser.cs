@@ -86,9 +86,7 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
             {
                 _infoCallback($"LoadCompleted {e.Uri}");
                 _uriHistory.Add(e.Uri);
-                _infoCallback("LoadCompleted 2");
                 _elements = _webElementFetcher.Fetch(_webBrowser.Document);
-                _infoCallback("LoadCompleted 3");
 
                 CheckAndFireMatchingUrls(e.Uri);
             }
@@ -102,14 +100,9 @@ namespace Mmu.Mlh.ScreenScraping.Areas.Browsers.Models.Implementation
         {
             var uriStr = loadedUri.ToString();
 
-            _infoCallback($"uriStr {uriStr}");
-            _infoCallback($"Count: {_loaderSources.Count}");
-
             var matchingSources = _loaderSources
                 .Where(f => uriStr.Contains((string)f.Task.AsyncState, StringComparison.OrdinalIgnoreCase))
                 .ToList();
-
-            _infoCallback($"Matching Found: {matchingSources.Count}");
 
             matchingSources.ForEach(
                 source =>

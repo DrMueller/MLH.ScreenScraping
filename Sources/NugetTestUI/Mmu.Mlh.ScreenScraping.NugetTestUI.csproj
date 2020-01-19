@@ -9,7 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mmu.Mlh.ScreenScraping" Version="1.1.26" />
+    <PackageReference Include="Mmu.Mlh.ScreenScraping" Version="1.1.43" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Libraries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml">
+      <HintPath>Libraries\Microsoft.mshtml.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -21,13 +21,13 @@ namespace Mmu.Mlh.ScreenScraping.NugetTestUI
             await browser.Navigate("https://www.google.ch");
 
             browser
-                .Find<WebElement>(f => f.ByClassName("gLFyf gsfi"))
-                .Click();
+                .Find<InputElement>(f => f.ByClassName("gLFyf gsfi"))
+                .SetValue("Hello Google!");
         }
 
-        private static void InfoCallback(string obj)
+        private static void InfoCallback(string info)
         {
-            Debug.WriteLine(obj);
+            Debug.WriteLine(info);
         }
     }
 }
