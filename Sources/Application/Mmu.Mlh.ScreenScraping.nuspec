@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Mmu.Mlh.ScreenScraping</id>
-    <version>1.0.0.0</version>
+    <version>__BuildVersion__</version>
     <title>MyLittleHelpers.ScreenScraping2</title>
     <authors>DrMueller</authors>
     <owners>DrMueller</owners>
