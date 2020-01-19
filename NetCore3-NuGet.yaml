@@ -30,7 +30,7 @@ jobs:
       
       Write-Host "Repository LocalPath: $(Build.Repository.LocalPath)"
       Write-Host "Environment-File: $filePath"
-      Write-Host "Build Number: $(Build.BuildNumber	)"
+      Write-Host "Build Number: $(Build.BuildNumber)"
         
       $environmentContent = Get-Content $filePath
       $replaced = $environmentContent -replace '__BuildVersion__', '$(Build.BuildNumber)'
