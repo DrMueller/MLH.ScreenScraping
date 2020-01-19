@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mmu.Mlh.ScreenScraping" Version="1.1.26" />
+    <PackageReference Include="Mmu.Mlh.ScreenScraping" Version="1.1.35" />
   </ItemGroup>
 
 </Project>
