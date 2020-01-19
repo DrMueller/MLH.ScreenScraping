@@ -26,17 +26,17 @@ jobs:
       SolutionName: $(SolutionName)
 
   - powershell: |
-    $filePath= Join-Path -Path $(Build.Repository.LocalPath) -ChildPath "Sources\Application\Mmu.Mlh.ScreenScraping.nuspec"   
-    
-    Write-Host "Repository LocalPath: $(Build.Repository.LocalPath)"
-    Write-Host "Environment-File: $filePath"
-    Write-Host "Build Number: $(Build.BuildNumber)"
+      $filePath= Join-Path -Path $(Build.Repository.LocalPath) -ChildPath "Sources\Application\Mmu.Mlh.ScreenScraping.nuspec"   
       
-    $environmentContent = Get-Content $filePath
-    $replaced = $environmentContent -replace '__BuildVersion__', '$(Build.BuildNumber)'
+      Write-Host "Repository LocalPath: $(Build.Repository.LocalPath)"
+      Write-Host "Environment-File: $filePath"
+      Write-Host "Build Number: $(Build.BuildNumber	)"
         
-    Set-Content -Path $filePath -value $replaced
-
+      $environmentContent = Get-Content $filePath
+      $replaced = $environmentContent -replace '__BuildVersion__', '$(Build.BuildNumber)'
+          
+      Set-Content -Path $filePath -value $replaced
+        
     displayName: 'PowerShell Script'
 
   - template: AzureDevOps/BuildTemplates/NetCore/Steps/Pack_And_Publish_To_NuGet.yaml@ALMStuff
